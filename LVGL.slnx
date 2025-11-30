@@ -4,6 +4,9 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
+  <Folder Name="/Solution Items/">
+    <File Path="../../../../Downloads/sharp_logo.c" />
+  </Folder>
   <Project Path="LvglWindows/LvglWindows.vcxproj" Id="d574f328-06da-47ac-9b03-ee01d22c070b">
     <BuildDependency Project="LvglWindows/LvglWindowsStatic.vcxproj" />
   </Project>

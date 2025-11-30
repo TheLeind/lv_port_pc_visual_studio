@@ -1,40 +1,48 @@
 ﻿#include <Windows.h>
-
+#include <iostream>
 #include <LvglWindowsIconResource.h>
 
 #include "lvgl/lvgl.h"
 #include "lvgl/examples/lv_examples.h"
 #include "lvgl/demos/lv_demos.h"
+#include "lvgl/src/drivers/windows/lv_windows_display.h"
+#include "lvgl/src/drivers/windows/lv_windows_input.h"
+
+#include "home_tab.h"
+#include "auton_selector.h"
+#include "sharp_logo_good.h"
+
+int screenWidth = 480;
+int screenHeight = 240;
+
+void ui_init(void) {
+    lv_obj_t* scr_act = lv_scr_act();
+    lv_obj_set_style_bg_color(scr_act, lv_color_make(217, 217, 217), LV_PART_MAIN);
+
+    lv_obj_t* tab_view = lv_tabview_create(scr_act);
+
+    lv_obj_t* home_tab = lv_tabview_add_tab(tab_view, "Home");
+    lv_obj_t* auton_tab = lv_tabview_add_tab(tab_view, "Auton");
+    lv_obj_t* pid_tab = lv_tabview_add_tab(tab_view, "PID Tuning");
+    lv_obj_t* temp_tab = lv_tabview_add_tab(tab_view, "Temperature");
+
+    create_home_tab(home_tab);
+    create_auto_selector(auton_tab);
+}
 
 int main()
 {
     lv_init();
 
-    /*
-     * Optional workaround for users who wants UTF-8 console output.
-     * If you don't want that behavior can comment them out.
-     *
-     * Suggested by jinsc123654.
-     */
-#if LV_TXT_ENC == LV_TXT_ENC_UTF8
-    SetConsoleCP(CP_UTF8);
-    SetConsoleOutputCP(CP_UTF8);
-#endif
-
-    int32_t zoom_level = 100;
-    bool allow_dpi_override = false;
-    bool simulator_mode = true;
     lv_display_t* display = lv_windows_create_display(
-        L"LVGL Windows Simulator Display 1",
-        800,
-        480,
-        zoom_level,
-        allow_dpi_override,
-        simulator_mode);
-    if (!display)
-    {
-        return -1;
-    }
+        L"LVGL Display",
+        screenWidth,
+        screenHeight,
+        100,
+        false,
+        true);
+
+    ui_init();
 
     HWND window_handle = lv_windows_get_display_window_handle(display);
     if (!window_handle)
@@ -60,25 +68,8 @@ int main()
     }
 
     lv_indev_t* pointer_indev = lv_windows_acquire_pointer_indev(display);
-    if (!pointer_indev)
-    {
-        return -1;
-    }
-
     lv_indev_t* keypad_indev = lv_windows_acquire_keypad_indev(display);
-    if (!keypad_indev)
-    {
-        return -1;
-    }
-
     lv_indev_t* encoder_indev = lv_windows_acquire_encoder_indev(display);
-    if (!encoder_indev)
-    {
-        return -1;
-    }
-
-    lv_demo_widgets();
-    //lv_demo_benchmark();
 
     while (1)
     {
