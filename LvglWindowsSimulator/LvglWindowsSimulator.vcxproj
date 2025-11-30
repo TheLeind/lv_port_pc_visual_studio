@@ -730,7 +730,10 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)..\LvglPlatform\lvgl\src\widgets\tileview\lv_tileview_private.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\LvglPlatform\lvgl\src\widgets\win\lv_win.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\LvglPlatform\lvgl\src\widgets\win\lv_win_private.h" />
+    <ClInclude Include="auton_selector.h" />
     <ClInclude Include="lv_conf.h" />
+    <ClInclude Include="sharp_logo_good.h" />
+    <ClInclude Include="home_tab.h" />
   </ItemGroup>
   <ItemGroup>
     <Manifest Include="LvglWindowsSimulator.manifest" />
@@ -4180,6 +4183,9 @@
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>Default</LanguageStandard>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Downloads\sharp_logo_good.c" />
+    <ClCompile Include="auton_selector.cpp" />
+    <ClCompile Include="home_tab.cpp" />
     <ClCompile Include="LvglWindowsSimulator.cpp" />
   </ItemGroup>
   <ItemGroup>

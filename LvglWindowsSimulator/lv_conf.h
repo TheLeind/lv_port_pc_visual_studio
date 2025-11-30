@@ -1005,7 +1005,7 @@
     /** 1: Show used memory and memory fragmentation.
      *     - Requires `LV_USE_STDLIB_MALLOC = LV_STDLIB_BUILTIN`
      *     - Requires `LV_USE_SYSMON = 1`*/
-    #define LV_USE_MEM_MONITOR 1
+    #define LV_USE_MEM_MONITOR 0
     #if LV_USE_MEM_MONITOR
         #define LV_USE_MEM_MONITOR_POS LV_ALIGN_BOTTOM_LEFT
     #endif
@@ -1015,7 +1015,7 @@
 #define LV_USE_PROFILER 0
 #if LV_USE_PROFILER
     /** 1: Enable the built-in profiler */
-    #define LV_USE_PROFILER_BUILTIN 1
+    #define LV_USE_PROFILER_BUILTIN 0
     #if LV_USE_PROFILER_BUILTIN
         /** Default profiler trace buffer size */
         #define LV_PROFILER_BUILTIN_BUF_SIZE (16 * 1024)     /**< [bytes] */

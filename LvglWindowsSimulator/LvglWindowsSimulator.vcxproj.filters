@@ -2075,6 +2075,15 @@
       <Filter>lvgl\src\widgets\win</Filter>
     </ClInclude>
     <ClInclude Include="lv_conf.h" />
+    <ClInclude Include="home_tab.h">
+      <Filter>tabs</Filter>
+    </ClInclude>
+    <ClInclude Include="sharp_logo_good.h">
+      <Filter>images</Filter>
+    </ClInclude>
+    <ClInclude Include="auton_selector.h">
+      <Filter>tabs</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Manifest Include="LvglWindowsSimulator.manifest" />
@@ -4664,6 +4673,15 @@
       <Filter>lvgl\src\widgets\win</Filter>
     </ClCompile>
     <ClCompile Include="LvglWindowsSimulator.cpp" />
+    <ClCompile Include="home_tab.cpp">
+      <Filter>tabs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Downloads\sharp_logo_good.c">
+      <Filter>images</Filter>
+    </ClCompile>
+    <ClCompile Include="auton_selector.cpp">
+      <Filter>tabs</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="freetype">
@@ -6405,6 +6423,12 @@
     </Filter>
     <Filter Include="lvgl\zephyr">
       <UniqueIdentifier>{17539506-a5ac-49ce-9772-7b20ea9d803d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tabs">
+      <UniqueIdentifier>{50cb2068-2b27-4751-871a-dfa0e7b70468}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="images">
+      <UniqueIdentifier>{bae061de-fd37-482e-a8fe-66c774d99fbe}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -17955,5 +17979,6 @@
     <None Include="$(MSBuildThisFileDirectory)..\LvglPlatform\lvgl\zephyr\module.yml">
       <Filter>lvgl\zephyr</Filter>
     </None>
+    <None Include="freetype.props" />
   </ItemGroup>
 </Project>
