@@ -8,7 +8,6 @@ lv_obj_t* auton_img;
 void update_autonomous(char* auton) {
     // Update selected auton
     set_auton_string(auton);
-    selected_auton = auton;
 
     if (!strcmp(auton, "RedLeft")) { printf("RedLeft\n"); }
     if (!strcmp(auton, "RedRight")) { printf("RedRight\n"); }
@@ -27,7 +26,13 @@ static void auton_list_event_handler(lv_event_t* e) {
 }
 
 void create_auto_selector(lv_obj_t* parent) {
-    lv_obj_t* auton_list = lv_dropdown_create(parent);
+    lv_obj_t* background = lv_obj_create(parent);
+    lv_obj_set_size(background, 480, 200);
+    lv_obj_set_align(background, LV_ALIGN_CENTER);
+    lv_obj_set_style_bg_color(background, lv_color_hex(0xD9D9D9), 0);
+    lv_obj_clear_flag(parent, LV_OBJ_FLAG_SCROLLABLE);
+
+    lv_obj_t* auton_list = lv_dropdown_create(background);
     lv_dropdown_set_options(auton_list, "RedLeft\n"
         "RedRight\n"
         "BlueLeft\n"
@@ -36,6 +41,6 @@ void create_auto_selector(lv_obj_t* parent) {
     lv_obj_align(auton_list, LV_ALIGN_TOP_LEFT, 0, 0);
     lv_obj_add_event_cb(auton_list, auton_list_event_handler, LV_EVENT_ALL, NULL);
 
-    auton_img = lv_image_create(parent);
+    auton_img = lv_image_create(background);
     lv_obj_align(auton_img, LV_ALIGN_RIGHT_MID, 0, 0);
 }

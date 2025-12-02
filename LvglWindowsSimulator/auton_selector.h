@@ -4,6 +4,5 @@
 #define AUTOSELECTOR
 
 void create_auto_selector(lv_obj_t* parent);
-extern char* selected_auton;
 
 #endif

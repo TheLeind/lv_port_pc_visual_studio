@@ -26,6 +26,10 @@ void ui_init(void) {
     lv_obj_t* pid_tab = lv_tabview_add_tab(tab_view, "PID Tuning");
     lv_obj_t* temp_tab = lv_tabview_add_tab(tab_view, "Temperature");
 
+    // Styles
+    lv_obj_set_style_bg_color(lv_tabview_get_tab_bar(tab_view), lv_color_hex(0x323232), 0);
+    lv_obj_set_style_text_color(lv_tabview_get_tab_bar(tab_view), lv_color_white(), 0);
+
     create_home_tab(home_tab);
     create_auto_selector(auton_tab);
 }

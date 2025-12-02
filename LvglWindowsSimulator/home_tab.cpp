@@ -10,6 +10,8 @@ void set_auton_string(const char* auton) {
 }
 
 void create_home_tab(lv_obj_t* parent) {
+    lv_obj_clear_flag(parent, LV_OBJ_FLAG_SCROLLABLE);
+
     lv_obj_t* sharp_img = lv_img_create(parent);
     lv_obj_set_size(sharp_img, 176, 114);
     lv_img_set_zoom(sharp_img, 64);
